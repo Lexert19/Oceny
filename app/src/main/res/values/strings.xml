@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Oceny</string>
+
+    <string name="nameTitle">Imię: </string>
+    <string name="surnameTitle">Nazwisko: </string>
+    <string name="gradesNumberTitle">Liczba ocen: </string>
+    <string name="gradesButton">OCENY</string>
+    <string name="nameInputError">Imię nie może być puste</string>
+    <string name="surnameInputError">Nazwisko nie może być puste</string>
+    <string name="gradesNumberInputError">Oceny muszą być z przedziału od 5 do 15.</string>
+
+    <string name="gradesActivity">Ustaw oceny</string>
+
+
+    <string-array name="subjectsList">
+        <item>Matematyka</item>
+        <item>Fizyka</item>
+        <item>Język polski</item>
+        <item>Chemia</item>
+        <item>Historia</item>
+        <item>Biologia</item>
+        <item>Geografia</item>
+        <item>Język angielski</item>
+        <item>Informatyka</item>
+        <item>Wychowanie fizyczne</item>
+        <item>Plastyka</item>
+        <item>Muzyka</item>
+        <item>Technika</item>
+        <item>Wiedza o społeczeństwie</item>
+        <item>Religia</item>
+    </string-array>
+
+</resources>
