@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">Oceny</string>
 
-    <string name="nameTitle">Imię: </string>
-    <string name="surnameTitle">Nazwisko: </string>
-    <string name="gradesNumberTitle">Liczba ocen: </string>
+    <string name="nameTextView">Imię: </string>
+    <string name="surnameTextView">Nazwisko: </string>
+    <string name="gradesNumberTextView">Liczba ocen: </string>
     <string name="gradesButton">OCENY</string>
     <string name="nameInputError">Imię nie może być puste</string>
     <string name="surnameInputError">Nazwisko nie może być puste</string>
     <string name="gradesNumberInputError">Oceny muszą być z przedziału od 5 do 15.</string>
+    <string name="averageTextView">Średnia:\u00A0</string>
+    <string name="gradesButtonPassed">Super :)</string>
+    <string name="gradesButtonFailed">Znowu mi nie wyszło</string>
 
     <string name="gradesActivity">Ustaw oceny</string>
+    <string name="calculateAverageButton">Oblicz średnią</string>
+
+
 
 
     <string-array name="subjectsList">

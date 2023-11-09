@@ -17,7 +17,7 @@
         android:autoSizeMinTextSize="1sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        android:text="@string/nameTitle"
+        android:text="@string/nameTextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/nameInput"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         android:autoSizeMinTextSize="1sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        android:text="@string/surnameTitle"
+        android:text="@string/surnameTextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/surnameInput"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:autoSizeMinTextSize="1sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        android:text="@string/gradesNumberTitle"
+        android:text="@string/gradesNumberTextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/gradesNumberInput"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,5 +108,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gradesNumberInput" />
+
+    <TextView
+        android:id="@+id/average"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gradesButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

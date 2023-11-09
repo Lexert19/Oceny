@@ -13,12 +13,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText nameInput;
     private EditText surnameInput;
     private EditText gradesNumberInput;
     private Button gradesButton;
+    private TextView averageTextView;
 
 
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         surnameInput = findViewById(R.id.surnameInput);
         gradesNumberInput = findViewById(R.id.gradesNumberInput);
         gradesButton = findViewById(R.id.gradesButton);
+        averageTextView = findViewById(R.id.average);
 
 
 
@@ -98,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GradesActivity.class);
-                intent.putExtra("degreesNumber", Integer.parseInt(gradesNumberInput.getText().toString()));
-                startActivityForResult(intent, ActivityCode.DegreesActivity.getValue());
+                intent.putExtra("gradesNumber", Integer.parseInt(gradesNumberInput.getText().toString()));
+                startActivityForResult(intent, ActivityCode.GradesActivity.getValue());
             }
         });
 
@@ -161,9 +164,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == ActivityCode.DegreesActivity.getValue() && resultCode==RESULT_OK){
-            Bundle gradesList = data.getExtras();
-            Log.d("", String.valueOf(gradesList.getInt("1")));
+        if(requestCode == ActivityCode.GradesActivity.getValue() && resultCode==RESULT_OK){
+            Bundle bundle = data.getExtras();
+            double average = bundle.getDouble("average");
+            String averageText = getApplicationContext().getResources().getString(R.string.averageTextView);
+            averageText+= average;
+
+            averageTextView.setText(averageText);
+            if(average >= 3){
+                gradesButton.setText(R.string.gradesButtonPassed);
+            }else {
+                gradesButton.setText(R.string.gradesButtonFailed);
+            }
+
+            //Log.d("", String.valueOf());
         }
     }
 

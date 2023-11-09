@@ -16,36 +16,37 @@
 
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="192dp"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:value="2"
             android:text="2"
             />
 
         <RadioButton
-            android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:value="3"
             android:text="3"
             />
 
         <RadioButton
-            android:id="@+id/radioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:value="4"
             android:text="4" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:value="5"
             android:text="5" />
 
     </RadioGroup>
