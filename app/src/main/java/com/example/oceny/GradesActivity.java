@@ -2,10 +2,8 @@ package com.example.oceny;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,14 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.oceny.listener.CalculateAverageButtonListener;
+import com.example.oceny.adapter.GradeAdapter;
+import com.example.oceny.listener.CalculateAverage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GradesActivity extends AppCompatActivity {
     private Button calculateAverageButton;
-    private List<Grade> grades;
+    private List<GradeModel> grades;
     private RecyclerView recyclerView;
     private GradeAdapter gradeAdapter;
     @Override
@@ -29,8 +28,7 @@ public class GradesActivity extends AppCompatActivity {
         setContentView(R.layout.grades_activity);
 
         this.calculateAverageButton = findViewById(R.id.calculateAverageButton);
-        calculateAverageButton.setOnClickListener(new CalculateAverageButtonListener(this));
-
+        calculateAverageButton.setOnClickListener(new CalculateAverage(this));
 
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -43,52 +41,43 @@ public class GradesActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<Grade> loadGrades(){
-        ArrayList<Grade> grades = new ArrayList<>();
+    private ArrayList<GradeModel> loadGrades(){
+        ArrayList<GradeModel> gradeModels = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
         int gradesNumber = bundle.getInt("gradesNumber");
 
         String[] subjectsList = getApplicationContext().getResources().getStringArray(R.array.subjectsList);
         for(int i=0; i<gradesNumber; i++){
-            grades.add(new Grade(subjectsList[i],2));
+            gradeModels.add(new GradeModel(subjectsList[i],2));
         }
 
-        return grades;
+        return gradeModels;
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        //Parcelable recyclerViewState = recyclerView.getLayoutManager().onSaveInstanceState();
-        outState.putParcelableArrayList("grades", (ArrayList<Grade>) grades);
-        //outState.putParcelable("grades", (Parcelable) grades);
+        outState.putParcelableArrayList("grades", (ArrayList<GradeModel>) grades);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        //savedInstanceState.getParcelable("grades");
-        ArrayList<Grade> grades = savedInstanceState.getParcelableArrayList("grades");
+        grades = savedInstanceState.getParcelableArrayList("grades");
         GradeAdapter gradeAdapter = new GradeAdapter(this, grades);
-        this.grades = grades;
         recyclerView.setAdapter(gradeAdapter);
         gradeAdapter.notifyDataSetChanged();
-
-        //Parcelable recyclerViewState = savedInstanceState.getParcelable("recycler_state");
-        //recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
-
-
     }
 
     public void returnAverage(){
         Bundle returnBundle = new Bundle();
         double average = 0;
-        for(Grade grade : grades){
-            average+=grade.getGrade();
+        for(GradeModel gradeModel : grades){
+            average+= gradeModel.getGrade();
         }
-        average/=grades.size();
+        average/= grades.size();
         returnBundle.putDouble("average",average);
         Intent intent = new Intent();
         intent.putExtras(returnBundle);
@@ -96,5 +85,18 @@ public class GradesActivity extends AppCompatActivity {
         finish();
     }
 
+    public void returnToParent(){
+        setResult(RESULT_CANCELED);
+        finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            returnToParent();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

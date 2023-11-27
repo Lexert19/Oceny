@@ -10,10 +10,16 @@
     <string name="gradesNumberInputError">Oceny muszą być z przedziału od 5 do 15.</string>
     <string name="averageTextView">Średnia:\u00A0</string>
     <string name="gradesButtonPassed">Super :)</string>
-    <string name="gradesButtonFailed">Znowu mi nie wyszło</string>
+    <string name="gradesButtonFailed">Tym razem mi nie poszło</string>
 
     <string name="gradesActivity">Ustaw oceny</string>
     <string name="calculateAverageButton">Oblicz średnią</string>
+
+    <string name="passedMessage">Gratulacje otrzymujesz zaliczenie</string>
+    <string name="failedMessage">Wysyłam podanie o zaliczenie warunkowe</string>
+
+    <string name="endApplicationTitle">Zakończ</string>
+    <string name="endApplicationOk">Ok</string>
 
 
 
