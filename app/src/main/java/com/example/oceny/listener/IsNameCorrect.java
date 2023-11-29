@@ -18,7 +18,6 @@ public class IsNameCorrect  implements View.OnFocusChangeListener{
     public void onFocusChange(View view, boolean hasFocus) {
         if(hasFocus){
             context.getNameInput().setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
-            //nameInput.setError(null);
         }else if(context.getNameInput().getText().toString().length() == 0){
             context.getNameInput().setBackgroundTintList(ColorStateList.valueOf(Color.RED));
             String error = context.getApplicationContext().getResources().getString(R.string.nameInputError);

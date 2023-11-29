@@ -18,6 +18,10 @@ public class EndApplication implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        createAlertDialog();
+    }
+
+    private void createAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.endApplicationTitle);
         if(passed){

@@ -27,18 +27,29 @@ public class GradesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grades_activity);
 
+        findViews();
+        setListeners();
+        configureRecyclerView();
+
+
+    }
+
+    private void findViews(){
         this.calculateAverageButton = findViewById(R.id.calculateAverageButton);
-        calculateAverageButton.setOnClickListener(new CalculateAverage(this));
-
-
         recyclerView = findViewById(R.id.recycler_view);
+    }
+
+    private void setListeners(){
+        calculateAverageButton.setOnClickListener(new CalculateAverage(this));
+    }
+
+    private void configureRecyclerView(){
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         this.grades = loadGrades();
 
         gradeAdapter = new GradeAdapter(this, grades);
         recyclerView.setAdapter(gradeAdapter);
-
     }
 
     private ArrayList<GradeModel> loadGrades(){

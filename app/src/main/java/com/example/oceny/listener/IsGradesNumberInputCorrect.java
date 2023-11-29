@@ -23,7 +23,6 @@ public class IsGradesNumberInputCorrect implements View.OnFocusChangeListener{
 
         if(hasFocus){
             context.getGradesNumberInput().setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
-            //gradesNumberInput.setError(null);
         }else if(gradesNumber >= 5 && gradesNumber <= 15){
 
         }else {
